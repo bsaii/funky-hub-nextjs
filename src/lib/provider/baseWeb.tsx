@@ -4,6 +4,7 @@ import React from 'react';
 import { Client, Server } from 'styletron-engine-atomic';
 import { Provider as StyletronProvider } from 'styletron-react';
 import { BaseProvider, LightTheme, createTheme } from 'baseui';
+import { ToasterContainer } from 'baseui/toast';
 
 export const BaseWebProvider = ({
   children,
@@ -12,7 +13,11 @@ export const BaseWebProvider = ({
 }) => {
   return (
     <StyletronProvider value={styletron}>
-      <BaseProvider theme={LightTheme}>{children}</BaseProvider>
+      <BaseProvider theme={LightTheme}>
+        <ToasterContainer placement='topRight' autoHideDuration={2500}>
+          {children}
+        </ToasterContainer>
+      </BaseProvider>
     </StyletronProvider>
   );
 };
