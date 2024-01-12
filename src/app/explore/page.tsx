@@ -6,7 +6,7 @@ import { ExploreContent } from './ExploreContent';
 const funky_api = process.env.NEXT_PUBLIC_FUNKY_HUB_ENDPOINT ?? '';
 
 async function getPosts() {
-  const res = await fetch(`${funky_api}/feeds`);
+  const res = await fetch(`${funky_api}/feeds`, { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error('Failed to get feeds.');
